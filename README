@@ -1,0 +1,42 @@
+CakePHP KISSmetrics Plugin
+
+A CakePHP Plugin for utilizing KISSmetrics tracking and analytics in your application. The plugin includes a interface for the KISSmetrics SDK.
+
+For a full list of available methods and properties, please refer to the [KISSmetrics  PHP SDK Overview](http://support.kissmetrics.com/apis/php)
+
+
+INSTALLATION
+------------
+
+1. Copy the plugin to app/Plugin/Kissmetrics
+2. Enable the plugin in app/Config/bootstrap.php
+3. Create a configuration file ``/app/Config/kissmetrics.php`` that contains your KISSmetrics key.
+
+Example:
+
+<?php
+
+$config = array(
+    'Kissmetrics' => array(
+        'key' => 'Your key goes here'
+    )
+);
+
+
+
+USAGE
+-----
+
+The following example shows how to track an event:
+    
+    $km = new Kissmetrics();
+    $km->identify($this->id);
+    $km->record('Signed up');
+
+You can use this Library file anywhere in your application. The log files will be genereated in the TMP folder.
+
+
+The following example shows how to generate a JavaScript block:
+
+    echo $this->Kissmetrics->trackingCode();
+
